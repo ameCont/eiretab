@@ -1,0 +1,25 @@
+body {
+  font-family: "Audiowide", sans-serif;
+}
+
+/* Main Start */
+main {
+  margin-top: 20px;
+}
+.battery-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 80vh;
+}
+.unsupported {
+  display: none;
+  user-select: none;
+  -moz-user-select: none;
+}
+/* Main End */
+@media screen and (max-width: 768px) {
+  .heading {
+    font-size: 30px;
+  }
+}
