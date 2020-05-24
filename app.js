@@ -10,8 +10,8 @@ function changeBatteryColor(level) {
   let className;
   if (level >= 75 && level <=100) className = 'bg-success' //green zone
   else if (level >= 50 && level <=75) className = 'bg-info' //blue zone
-  else if (level >= 25 && level <=50) className = 'bg-warning' //yellow zone
-  else if (level >= 0 && level <=25) className = 'bg-danger' //red zone
+  else if (level >= 25 && level < 50) className = 'bg-warning' //yellow zone
+  else if (level >= 0 && level < 25) className = 'bg-danger' //red zone
   oldClassName = className
 
   return className;
