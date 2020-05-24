@@ -8,10 +8,10 @@ let batteryLevel, isCharging;
 let oldClassName;
 function changeBatteryColor(level) {
   let className;
-  if (level >= 75 && level <= 100) className = 'bg-danger' //green zone
-  else if (level >= 50 && level < 75) className = 'bg-warning' //blue zone
-  else if (level >= 25 && level < 50) className = 'bg-info' //yellow zone
-  else if (level >= 0 && level < 25) className = 'bg-success' //red zone
+ if (level >= 75 && level <= 100) className = 'bg-success' //green zone
+  else if (level >= 50 && level < 75) className = 'bg-info' //blue zone
+  else if (level >= 25 && level < 50) className = 'bg-warning' //yellow zone
+  else if (level >= 0 && level < 25) className = 'bg-danger' //red zone
   oldClassName = className
 
   return className;
@@ -29,7 +29,7 @@ function changeChargingAnimation(isCharging) {
 }
 
 function changeLevel(battery) {
-  batteryLevel = `${battery.level * 100}%`;
+  batteryLevel = `${100 - battery.level * 100}%`;
   progressBar.setAttribute("aria-valuenow",battery.level)
   progressBar.style.width = batteryLevel;
   progressBar.innerText = batteryLevel;
@@ -40,7 +40,7 @@ function changeLevel(battery) {
 
 // Functions end
 
-   async function showBattery() {
+  async function showBattery() {
   const battery = await navigator.getBattery();
   isCharging = battery.charging;
   changeLevel(battery);
